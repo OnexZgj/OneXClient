@@ -1,0 +1,3 @@
+# OneXClient
+BottomNavigationView的使用中出现的bug
+--确保在Drawable中找到相应的资源文件，尤其是在android视图下面更难发现，添加依赖design包时，注意版本号相同的问题
