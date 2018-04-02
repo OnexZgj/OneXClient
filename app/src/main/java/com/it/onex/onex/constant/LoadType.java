@@ -6,7 +6,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Created by OneXzgj on 2018-04-02.
+ * Created by OnexZgj on 2018-04-02.
  */
 
 public class LoadType {

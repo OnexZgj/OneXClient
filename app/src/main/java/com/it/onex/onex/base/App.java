@@ -10,7 +10,7 @@ import com.it.onex.onex.di.component.DaggerApplicationComponent;
 import com.it.onex.onex.di.module.ApplicationModule;
 
 /**
- * Created by lw on 2018/1/18.
+ * Created by OnexZgj on 2018/1/18.
  */
 
 public class App extends Application {

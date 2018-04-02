@@ -4,7 +4,7 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
 
 /**
  * desc:
- * author: onexzgj .
+ * author: OnexZgj .
  * date: 2018/4/2 .
  */
 public interface BaseContract {
