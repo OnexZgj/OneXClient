@@ -49,4 +49,6 @@
     <string name="share_article_url">%1$s分享【%2$s】：%3$s</string>
     <string name="share_type_url">%1$s分享【%2$s】专题：http://www.wanandroid.com/article/list/0?cid=%3$d</string>
     <string name="exit_system">再按一次退出程序</string>
+    <string name="knowledgesystem">知识体系</string>
+    <string name="my">我</string>
 </resources>
