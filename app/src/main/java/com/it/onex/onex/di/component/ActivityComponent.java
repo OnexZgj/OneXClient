@@ -10,7 +10,7 @@ import com.it.onex.onex.di.scope.PerActivity;
 import dagger.Component;
 
 /**
- * Created by lw on 2017/1/19.
+ * Created by OnexZgj on 2018/4/2.
  */
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
