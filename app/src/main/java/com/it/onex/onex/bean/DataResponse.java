@@ -17,6 +17,13 @@ public class DataResponse<T> {
     private int errorCode;
     private String errorMsg;
 
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 
     public int getErrorCode() {
         return errorCode;

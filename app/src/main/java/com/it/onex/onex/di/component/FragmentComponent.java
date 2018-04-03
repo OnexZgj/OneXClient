@@ -2,9 +2,11 @@ package com.it.onex.onex.di.component;
 
 import android.app.Activity;
 import android.content.Context;
+
 import com.it.onex.onex.di.module.FragmentModule;
 import com.it.onex.onex.di.scope.ContextLife;
 import com.it.onex.onex.di.scope.PerFragment;
+import com.it.onex.onex.ui.fragment.home.HomeFragment;
 
 import dagger.Component;
 
@@ -23,6 +25,6 @@ public interface FragmentComponent {
 
     Activity getActivity();
 
-//    void inject(HomeFragment fragment);
+    void inject(HomeFragment fragment);
 
 }

@@ -1,5 +1,8 @@
 package com.it.onex.onex.net;
 
+import com.it.onex.onex.bean.Article;
+import com.it.onex.onex.bean.DataResponse;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -16,7 +19,7 @@ public interface ApiService {
 //    参数：页码，拼接在连接中，从0开始。
 
     @GET("/article/list/{page}/json")
-    Observable<Object> getHomeArticles(@Path("page") int page);
+    Observable<DataResponse<Article>> getHomeArticles(@Path("page") int page);
 
 
 }
