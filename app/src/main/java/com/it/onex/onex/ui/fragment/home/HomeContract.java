@@ -3,7 +3,10 @@ package com.it.onex.onex.ui.fragment.home;
 
 import com.it.onex.onex.base.BaseContract;
 import com.it.onex.onex.bean.Article;
+import com.it.onex.onex.bean.BannerData;
 import com.it.onex.onex.constant.LoadType;
+
+import java.util.List;
 
 /**
  * Created by lw on 2018/1/18.
@@ -12,7 +15,7 @@ import com.it.onex.onex.constant.LoadType;
 public interface HomeContract {
 
     interface View extends BaseContract.BaseView {
-//        void setHomeBanners(List<Banner> banners);
+        void setHomeBanners(List<BannerData> banners);
 
         void setHomeArticles(Article article, @LoadType.checker int loadType);
 

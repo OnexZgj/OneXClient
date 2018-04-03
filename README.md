@@ -18,4 +18,4 @@ Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug
 #### 4. All com.android.support libraries must use the exact same version specification (mixing versions can lead to runtime crashes). Found versions 27.0.2, 26.1.0. Examples include com.android.support:support-compat:27.0.2 and com.android.support:animated-vector-drawable:26.1.0 less... (Ctrl+F1)
 根build中强制进行转化相应的类
 
-#### rxjava-adapter 的依赖错误
+#### rxjava-adapter 的依赖错误  Could not locate call adapter for io.reactivex.Observable

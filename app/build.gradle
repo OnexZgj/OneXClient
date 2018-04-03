@@ -12,7 +12,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [moduleName: project.getName()]
             }
         }
 
@@ -86,4 +86,11 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:4.4.0'
     //okhttp3
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+
+    //AgentWeb
+    compile 'com.just.agentweb:agentweb:4.0.2'
+
+    //banner
+    compile 'com.youth.banner:banner:1.4.10'
+
 }

@@ -2,11 +2,14 @@ package com.it.onex.onex.ui.fragment.home;
 
 import com.it.onex.onex.base.BasePresenter;
 import com.it.onex.onex.bean.Article;
+import com.it.onex.onex.bean.BannerData;
 import com.it.onex.onex.bean.DataResponse;
 import com.it.onex.onex.constant.LoadType;
 import com.it.onex.onex.net.ApiService;
 import com.it.onex.onex.net.RetrofitManager;
 import com.it.onex.onex.utils.RxSchedulers;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -32,6 +35,21 @@ public class HomePresenterImp extends BasePresenter<HomeContract.View> implement
 
     @Override
     public void loadHomeBanners() {
+        RetrofitManager.create(ApiService.class)
+                .getHomeBanners()
+                .compose(RxSchedulers.<DataResponse<List<BannerData>>>applySchedulers())
+                .compose(mView.<DataResponse<List<BannerData>>>bindToLife())
+                .subscribe(new Consumer<DataResponse<List<BannerData>>>() {
+                    @Override
+                    public void accept(DataResponse<List<BannerData>> listDataResponse) throws Exception {
+                        mView.setHomeBanners(listDataResponse.getData());
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        mView.showFaild("请求网络数据错误!");
+                    }
+                });
 
     }
 

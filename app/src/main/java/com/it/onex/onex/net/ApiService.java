@@ -1,7 +1,10 @@
 package com.it.onex.onex.net;
 
 import com.it.onex.onex.bean.Article;
+import com.it.onex.onex.bean.BannerData;
 import com.it.onex.onex.bean.DataResponse;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -22,4 +25,9 @@ public interface ApiService {
     Observable<DataResponse<Article>> getHomeArticles(@Path("page") int page);
 
 
+//    http://www.wanandroid.com/banner/json
+//    方法：GET
+//    参数：无
+    @GET("/banner/json")
+    Observable<DataResponse<List<BannerData>>> getHomeBanners();
 }
