@@ -75,8 +75,7 @@ public class HomeFragment extends BaseFragment<HomePresenterImp> implements Home
         mArticleAdapter.setOnLoadMoreListener(this);
 
         //请求数据
-        mPresenter.loadHomeBanners();
-        mPresenter.loadHomeArticles();
+        mPresenter.loadHomeData();
     }
 
     @Override
@@ -96,12 +95,12 @@ public class HomeFragment extends BaseFragment<HomePresenterImp> implements Home
 
     @Override
     public void onRefresh() {
-
+        mPresenter.refresh();
     }
 
     @Override
     public void onLoadMoreRequested() {
-
+        mPresenter.loadMore();
     }
 
     @Override

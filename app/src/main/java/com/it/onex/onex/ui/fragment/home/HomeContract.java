@@ -34,6 +34,9 @@ public interface HomeContract {
 
         void collectArticle(int position, Article.DatasBean bean);
 
+        /**
+         * 一次性请求多次网络
+         */
         void loadHomeData();
     }
 }

@@ -137,15 +137,20 @@ public abstract class BaseFragment<T extends BaseContract.BasePresenter> extends
             case LoadType.TYPE_REFRESH_SUCCESS:
                 baseQuickAdapter.setNewData(list);
                 refreshLayout.setRefreshing(false);
+                ToastUtils.showShort(R.string.refresh_success);
                 break;
             case LoadType.TYPE_REFRESH_ERROR:
                 refreshLayout.setRefreshing(false);
+                ToastUtils.showShort(R.string.refresh_error);
                 break;
             case LoadType.TYPE_LOAD_MORE_SUCCESS:
                 if (list != null) baseQuickAdapter.addData(list);
+                ToastUtils.showShort(R.string.load_more_success);
+
                 break;
             case LoadType.TYPE_LOAD_MORE_ERROR:
                 baseQuickAdapter.loadMoreFail();
+                ToastUtils.showShort(R.string.load_more_error);
                 break;
         }
         if (list == null || list.isEmpty() || list.size() < Constant.PAGE_SIZE) {
