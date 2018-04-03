@@ -10,7 +10,7 @@ public class Constant {
     /**
      * 每页数量
      */
-    public static final int PAGE_SIZE = 20;
+    public static final int PAGE_SIZE = 15;
     /**
      * url key
      */

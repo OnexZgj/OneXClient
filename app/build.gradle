@@ -57,4 +57,18 @@ dependencies {
     //baseAdapterHelper
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     compile 'com.android.support:preference-v14:26.1.0'
+
+    //retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+
+    //glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    //okhttp3
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+
+
 }
