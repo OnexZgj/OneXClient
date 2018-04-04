@@ -30,7 +30,7 @@ public class ArticleAdapter extends BaseQuickAdapter<Article.DatasBean,BaseViewH
         helper.setText(R.id.tvDesc, item.getDesc());
 
         helper.setImageResource(R.id.ivCollect, item.isCollect()
-                ? R.drawable.ic_action_like : R.drawable.ic_action_no_like);
+                ? R.drawable.ic_action_no_like : R.drawable.ic_action_like);
         helper.addOnClickListener(R.id.tvChapterName);
         helper.addOnClickListener(R.id.ivCollect);
 

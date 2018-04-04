@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * author: OnexZgj .
+ * author: OnexZgj
  * date: 2018/4/2 .
  */
 

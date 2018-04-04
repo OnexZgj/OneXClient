@@ -40,6 +40,7 @@ public class HomeFragment extends BaseFragment<HomePresenterImp> implements Home
 
     @Inject
     ArticleAdapter mArticleAdapter;
+
     private View mHomeBannerHeadView;
     private Banner mBannerAds;
 
@@ -90,7 +91,12 @@ public class HomeFragment extends BaseFragment<HomePresenterImp> implements Home
 
     @Override
     public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-
+        if (view.getId()==R.id.tvChapterName){
+            //进行项目分类文章的跳转
+        }else if (view.getId()==R.id.ivCollect){
+            //进行文章收藏的业务功能
+            mPresenter.collectArticle(position,mArticleAdapter.getItem(position));
+        }
     }
 
     @Override
@@ -138,6 +144,6 @@ public class HomeFragment extends BaseFragment<HomePresenterImp> implements Home
 
     @Override
     public void collectArticleSuccess(int position, Article.DatasBean bean) {
-
+        mArticleAdapter.setData(position,bean);
     }
 }

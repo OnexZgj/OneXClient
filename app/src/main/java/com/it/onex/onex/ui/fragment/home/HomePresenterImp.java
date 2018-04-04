@@ -1,5 +1,6 @@
 package com.it.onex.onex.ui.fragment.home;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.it.onex.onex.base.BasePresenter;
 import com.it.onex.onex.bean.Article;
 import com.it.onex.onex.bean.BannerData;
@@ -68,15 +69,15 @@ public class HomePresenterImp extends BasePresenter<HomeContract.View> implement
                 .subscribe(new Consumer<DataResponse<Article>>() {
                     @Override
                     public void accept(DataResponse<Article> dataResponse) throws Exception {
-                        int loadType = mIsRefresh?LoadType.TYPE_REFRESH_SUCCESS:LoadType.TYPE_LOAD_MORE_SUCCESS;
+                        int loadType = mIsRefresh ? LoadType.TYPE_REFRESH_SUCCESS : LoadType.TYPE_LOAD_MORE_SUCCESS;
 
-                        mView.setHomeArticles(dataResponse.getData(),loadType);
+                        mView.setHomeArticles(dataResponse.getData(), loadType);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        int loadType = mIsRefresh?LoadType.TYPE_REFRESH_ERROR:LoadType.TYPE_LOAD_MORE_ERROR;
-                        mView.setHomeArticles(new Article(),loadType);
+                        int loadType = mIsRefresh ? LoadType.TYPE_REFRESH_ERROR : LoadType.TYPE_LOAD_MORE_ERROR;
+                        mView.setHomeArticles(new Article(), loadType);
                     }
                 });
     }
@@ -97,8 +98,53 @@ public class HomePresenterImp extends BasePresenter<HomeContract.View> implement
     }
 
     @Override
-    public void collectArticle(int position, Article.DatasBean bean) {
+    public void collectArticle(final int position, final Article.DatasBean bean) {
+        if (bean.isCollect()) {
+            //进行取消收藏的操作
+            RetrofitManager.create(ApiService.class).removeCollectArticle(bean.getId(), -1)
+                    .compose(RxSchedulers.<DataResponse>applySchedulers())
+                    .compose(mView.<DataResponse>bindToLife())
+                    .subscribe(new Consumer<DataResponse>() {
+                        @Override
+                        public void accept(DataResponse dataResponse) throws Exception {
+                            if (dataResponse.getErrorCode() == 0) {
+                                bean.setCollect(!bean.isCollect());
+                                mView.collectArticleSuccess(position, bean);
+                            } else {
+                                ToastUtils.showShort("请求网络错误" + dataResponse.getErrorMsg());
+                            }
+                        }
+                    }, new Consumer<Throwable>() {
+                        @Override
+                        public void accept(Throwable throwable) throws Exception {
+                            mView.showFaild("取消收藏失败");
+                        }
+                    });
+        } else {
+            //收藏收藏文章的操作
+            RetrofitManager.create(ApiService.class).collectArticle(bean.getId())
+                    .compose(RxSchedulers.<DataResponse>applySchedulers())
+                    .compose(mView.<DataResponse>bindToLife())
+                    .subscribe(new Consumer<DataResponse>() {
+                        @Override
+                        public void accept(DataResponse dataResponse) throws Exception {
 
+                            if (dataResponse.getErrorCode() == 0) {
+                                bean.setCollect(!bean.isCollect());
+                                mView.collectArticleSuccess(position, bean);
+                            } else {
+                                ToastUtils.showShort("请求网络错误" + dataResponse.getErrorMsg());
+                            }
+                        }
+                    }, new Consumer<Throwable>() {
+                        @Override
+                        public void accept(Throwable throwable) throws Exception {
+                            mView.showFaild("收藏文章失败");
+                        }
+                    });
+
+
+        }
     }
 
     @Override
