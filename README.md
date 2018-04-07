@@ -19,3 +19,7 @@ Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug
 根build中强制进行转化相应的类
 
 #### rxjava-adapter 的依赖错误  Could not locate call adapter for io.reactivex.Observable
+
+#### 多个observable进行网络请求的时候，像登录和注册这种相关的请求，数据中直接放回response对象，在subscribe中进行处理相关的逻辑
+
+#### 研究实现请求中cookie的使用，在项目中的实际使用的方式，以及网络数据的持久化操作
