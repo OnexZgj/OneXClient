@@ -95,6 +95,7 @@ public class RetrofitManager {
                             .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
                             .addInterceptor(mRewriteCacheControlInterceptor)
                             .addInterceptor(mLoggingInterceptor)
+                            .cookieJar(new CookiesManager())
                             .build();
                 }
             }

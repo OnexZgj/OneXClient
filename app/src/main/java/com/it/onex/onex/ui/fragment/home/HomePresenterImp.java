@@ -1,6 +1,8 @@
 package com.it.onex.onex.ui.fragment.home;
 
 import com.blankj.utilcode.util.ToastUtils;
+import com.it.onex.onex.R;
+import com.it.onex.onex.base.App;
 import com.it.onex.onex.base.BasePresenter;
 import com.it.onex.onex.bean.Article;
 import com.it.onex.onex.bean.BannerData;
@@ -152,13 +154,15 @@ public class HomePresenterImp extends BasePresenter<HomeContract.View> implement
         ApiService apiService = RetrofitManager.create(ApiService.class);
         Observable<DataResponse<Article>> observableArticle = apiService.getHomeArticles(mPage);
         Observable<DataResponse<List<BannerData>>> observableBanner = apiService.getHomeBanners();
-        Observable<DataResponse> observableLogin = apiService.login("OnxZgj", "474835552lv");
+        Observable<DataResponse> observableLogin = apiService.login("OnexZgj", "13102119zgj");
 
         Observable.zip(observableLogin, observableBanner, observableArticle, new Function3<DataResponse, DataResponse<List<BannerData>>, DataResponse<Article>, Map<String,Object>>() {
             @Override
             public Map<String, Object> apply(DataResponse loginResponse, DataResponse<List<BannerData>> bannerDataResponse, DataResponse<Article> articleDataResponse) throws Exception {
                 Map<String, Object> objMap = new HashMap<>();
-                objMap.put(Constant.LOGIN_KEY, loginResponse.getData());
+
+                //这里面是一个注意点，直接进行返回response的实体
+                objMap.put(Constant.LOGIN_KEY, loginResponse);
                 objMap.put(Constant.BANNER_KEY, bannerDataResponse.getData());
                 objMap.put(Constant.ARTICLE_KEY, articleDataResponse.getData());
                 return objMap;
@@ -167,13 +171,20 @@ public class HomePresenterImp extends BasePresenter<HomeContract.View> implement
                 .compose(mView.<Map<String,Object>>bindToLife())
                 .subscribe(new Consumer<Map<String, Object>>() {
                     @Override
-                    public void accept(Map<String, Object> stringObjectMap) throws Exception {
-                        
+                    public void accept(Map<String, Object> mapData) throws Exception {
+                        DataResponse loginData = (DataResponse) mapData.get(Constant.LOGIN_KEY);
+                        if (loginData.getErrorCode()==0) {
+                            mView.showSuccess(App.getAppContext().getString(R.string.auto_login_success));
+                        }else{
+                            mView.showFaild(loginData.getErrorMsg());
+                        }
+                        mView.setHomeBanners((List<BannerData>) mapData.get(Constant.BANNER_KEY));
+                        mView.setHomeArticles((Article) mapData.get(Constant.ARTICLE_KEY), LoadType.TYPE_REFRESH_SUCCESS);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-
+                        mView.showFaild("请求网络数据错误" + throwable.getMessage());
                     }
                 });
 
