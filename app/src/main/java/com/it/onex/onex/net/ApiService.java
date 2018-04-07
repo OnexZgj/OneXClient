@@ -60,4 +60,30 @@ public interface ApiService {
     @POST("/lg/uncollect/{id}/json")
     @FormUrlEncoded
     Observable<DataResponse> removeCollectArticle(@Path("id") int id, @Field("originId") int originId);
+
+
+    /**
+     * 登录接口
+     * http://www.wanandroid.com/user/login
+     * @param username 用户名
+     * @param password 密码
+     * @return
+     */
+    @POST("/user/login")
+    @FormUrlEncoded
+    Observable<DataResponse> login(@Field("username") String username,@Field("password") String password);
+
+
+    /**
+     * 注册用户的方法
+     * http://www.wanandroid.com/user/register
+     * @param username 用户名
+     * @param password 密码
+     * @param repassword 确认密码
+     * @return
+     */
+    @POST("/user/register")
+    Observable<DataResponse> register(@Field("username") String username,@Field("password") String password,@Field("repassword") String repassword);
+
+
 }
