@@ -7,6 +7,7 @@ import com.it.onex.onex.base.BasePresenter;
 import com.it.onex.onex.bean.Article;
 import com.it.onex.onex.bean.BannerData;
 import com.it.onex.onex.bean.DataResponse;
+import com.it.onex.onex.bean.User;
 import com.it.onex.onex.constant.Constant;
 import com.it.onex.onex.constant.LoadType;
 import com.it.onex.onex.net.ApiService;
@@ -154,11 +155,11 @@ public class HomePresenterImp extends BasePresenter<HomeContract.View> implement
         ApiService apiService = RetrofitManager.create(ApiService.class);
         Observable<DataResponse<Article>> observableArticle = apiService.getHomeArticles(mPage);
         Observable<DataResponse<List<BannerData>>> observableBanner = apiService.getHomeBanners();
-        Observable<DataResponse> observableLogin = apiService.login("OnexZgj", "13102119zgj");
+        Observable<DataResponse<User>> observableLogin = apiService.login("OnexZgj", "13102119zgj");
 
-        Observable.zip(observableLogin, observableBanner, observableArticle, new Function3<DataResponse, DataResponse<List<BannerData>>, DataResponse<Article>, Map<String,Object>>() {
+        Observable.zip(observableLogin, observableBanner, observableArticle, new Function3<DataResponse<User>, DataResponse<List<BannerData>>, DataResponse<Article>, Map<String,Object>>() {
             @Override
-            public Map<String, Object> apply(DataResponse loginResponse, DataResponse<List<BannerData>> bannerDataResponse, DataResponse<Article> articleDataResponse) throws Exception {
+            public Map<String, Object> apply(DataResponse<User> loginResponse, DataResponse<List<BannerData>> bannerDataResponse, DataResponse<Article> articleDataResponse) throws Exception {
                 Map<String, Object> objMap = new HashMap<>();
 
                 //这里面是一个注意点，直接进行返回response的实体

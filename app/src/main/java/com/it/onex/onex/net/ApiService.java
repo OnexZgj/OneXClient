@@ -3,6 +3,7 @@ package com.it.onex.onex.net;
 import com.it.onex.onex.bean.Article;
 import com.it.onex.onex.bean.BannerData;
 import com.it.onex.onex.bean.DataResponse;
+import com.it.onex.onex.bean.User;
 
 import java.util.List;
 
@@ -71,7 +72,7 @@ public interface ApiService {
      */
     @POST("/user/login")
     @FormUrlEncoded
-    Observable<DataResponse> login(@Field("username") String username,@Field("password") String password);
+    Observable<DataResponse<User>> login(@Field("username") String username, @Field("password") String password);
 
 
     /**
