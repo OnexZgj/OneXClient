@@ -49,7 +49,6 @@ public class MeFragment extends BaseFragment<MePresenterImp> implements MeContra
 
     @Override
     protected void initView(View view) {
-
     }
 
 

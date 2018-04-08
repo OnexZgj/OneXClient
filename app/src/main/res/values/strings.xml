@@ -50,7 +50,7 @@
     <string name="share_type_url">%1$s分享【%2$s】专题：http://www.wanandroid.com/article/list/0?cid=%3$d</string>
     <string name="exit_system">再按一次退出程序</string>
     <string name="knowledgesystem">知识体系</string>
-    <string name="my">我</string>
+    <string name="my">登录</string>
     <string name="refresh_success">刷新成功</string>
     <string name="refresh_error">刷新失败</string>
     <string name="load_more_success">拉取数据成功</string>
