@@ -1,7 +1,6 @@
 package com.it.onex.onex.ui.fragment.me;
 
 import android.support.design.widget.TextInputEditText;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -23,8 +22,6 @@ import butterknife.Unbinder;
 public class MeFragment extends BaseFragment<MePresenterImp> implements MeContract.View {
 
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
     @BindView(R.id.etUsername)
     TextInputEditText etUsername;
     @BindView(R.id.etPassword)
