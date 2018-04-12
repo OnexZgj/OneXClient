@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.blankj.utilcode.util.ToastUtils;
 import com.it.onex.onex.R;
 import com.it.onex.onex.bean.KnowledgeSystem;
 
@@ -22,5 +24,7 @@ public class ArticleTypeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_type);
+        ARouter.getInstance().inject(this);
+        ToastUtils.showShort(title);
     }
 }
