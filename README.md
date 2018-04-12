@@ -26,3 +26,5 @@ Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug
 
 
 #### 单独定义字体的font.xml在布局中仍然使用  @dimen/xxsp照样可以引用的到，类似于颜色的引用
+
+#### dagger2是不是有更新，所有的使用全是用@inject注解全部实现？
