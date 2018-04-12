@@ -7,6 +7,7 @@ import com.it.onex.onex.di.module.FragmentModule;
 import com.it.onex.onex.di.scope.ContextLife;
 import com.it.onex.onex.di.scope.PerFragment;
 import com.it.onex.onex.ui.fragment.home.HomeFragment;
+import com.it.onex.onex.ui.fragment.knowledge.KnowLedgeFragment;
 import com.it.onex.onex.ui.fragment.me.MeFragment;
 
 import dagger.Component;
@@ -29,5 +30,7 @@ public interface FragmentComponent {
     void inject(HomeFragment fragment);
 
     void inject(MeFragment fragment);
+
+    void inject(KnowLedgeFragment fragment);
 
 }

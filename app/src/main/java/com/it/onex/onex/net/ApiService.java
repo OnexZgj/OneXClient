@@ -3,6 +3,7 @@ package com.it.onex.onex.net;
 import com.it.onex.onex.bean.Article;
 import com.it.onex.onex.bean.BannerData;
 import com.it.onex.onex.bean.DataResponse;
+import com.it.onex.onex.bean.KnowledgeSystem;
 import com.it.onex.onex.bean.User;
 
 import java.util.List;
@@ -86,5 +87,13 @@ public interface ApiService {
     @POST("/user/register")
     Observable<DataResponse> register(@Field("username") String username,@Field("password") String password,@Field("repassword") String repassword);
 
+
+    /**
+     * 体系结构
+     * http://www.wanandroid.com/tree/json
+     */
+
+    @GET("/tree/json")
+    Observable<DataResponse<List<KnowledgeSystem>>> getKnowledgeSystemTree();
 
 }
