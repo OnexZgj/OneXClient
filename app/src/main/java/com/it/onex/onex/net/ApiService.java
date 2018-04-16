@@ -1,6 +1,7 @@
 package com.it.onex.onex.net;
 
 import com.it.onex.onex.bean.Article;
+import com.it.onex.onex.bean.ArticleTypeContent;
 import com.it.onex.onex.bean.BannerData;
 import com.it.onex.onex.bean.DataResponse;
 import com.it.onex.onex.bean.KnowledgeSystem;
@@ -14,6 +15,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by OneXzgj on 2018/4/3:09:56.
@@ -95,5 +97,13 @@ public interface ApiService {
 
     @GET("/tree/json")
     Observable<DataResponse<List<KnowledgeSystem>>> getKnowledgeSystemTree();
+
+    /**
+     * 体系结构下面的文章
+     * http://www.wanandroid.com/article/list/0/json?cid=60
+     */
+
+    @GET("/article/list/{page}/json")
+    Observable<DataResponse<ArticleTypeContent>> getArticleTypeContent(@Path("page") int page,@Query("cid") int cid );
 
 }

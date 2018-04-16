@@ -21,7 +21,7 @@
             android:id="@+id/tabArticleTypes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_4"
             app:tabGravity="center"
             app:tabIndicatorColor="@color/white"
             app:tabIndicatorHeight="@dimen/dp_4"

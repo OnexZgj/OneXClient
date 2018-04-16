@@ -39,6 +39,7 @@ public class ArticleTypeActivity extends BaseActivity {
     protected void initView() {
         setToolbarTitle(title);
         vpAatContent.setAdapter(new ArticleTypePageAdapter(getSupportFragmentManager(),childrenData));
+        tabArticleTypes.setupWithViewPager(vpAatContent);
     }
 
 }

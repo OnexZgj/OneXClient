@@ -29,7 +29,7 @@ public class ArticleTypePageAdapter extends FragmentPagerAdapter {
         //TODO 待优化解决
         for (KnowledgeSystem.ChildrenBean childrenBean: mChildrenData) {
             ArticleListFragment articleListFragment = (ArticleListFragment) ARouter.getInstance().build("/article/ArticleListFragment")
-                    .withInt(Constant.CONTENT_CID_KEY, childrenBean.getCourseId())
+                    .withInt(Constant.CONTENT_CID_KEY, childrenBean.getId())
                     .navigation();
             mArticleListFragments.add(articleListFragment);
         }
@@ -43,5 +43,10 @@ public class ArticleTypePageAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return mArticleListFragments.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mChildrenData.get(position).getName();
     }
 }

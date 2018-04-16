@@ -6,6 +6,7 @@ import android.content.Context;
 import com.it.onex.onex.di.module.FragmentModule;
 import com.it.onex.onex.di.scope.ContextLife;
 import com.it.onex.onex.di.scope.PerFragment;
+import com.it.onex.onex.ui.fragment.article.ArticleListFragment;
 import com.it.onex.onex.ui.fragment.home.HomeFragment;
 import com.it.onex.onex.ui.fragment.knowledge.KnowLedgeFragment;
 import com.it.onex.onex.ui.fragment.me.MeFragment;
@@ -32,5 +33,7 @@ public interface FragmentComponent {
     void inject(MeFragment fragment);
 
     void inject(KnowLedgeFragment fragment);
+
+    void inject(ArticleListFragment fragment);
 
 }
