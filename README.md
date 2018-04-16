@@ -28,3 +28,6 @@ Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug
 #### 单独定义字体的font.xml在布局中仍然使用  @dimen/xxsp照样可以引用的到，类似于颜色的引用
 
 #### dagger2是不是有更新，所有的使用全是用@inject注解全部实现？
+
+#### 关于toolbar的使用总结，在baseActivity中直接进行初始化，比如定义为  toolbar ,子布局中药继承的Activity中都进行手动配置这个toolbar
+及布局文件中进行写一个相关的id 为toolbar的  ToolBar的控件，这样不会报空，又会单独处理
