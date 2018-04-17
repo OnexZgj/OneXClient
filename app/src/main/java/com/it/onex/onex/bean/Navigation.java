@@ -268,6 +268,6 @@ public class Navigation {
         public void setTags(List<?> tags) {
             this.tags = tags;
         }
-
     }
+
 }

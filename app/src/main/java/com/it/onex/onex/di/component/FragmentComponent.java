@@ -10,7 +10,6 @@ import com.it.onex.onex.ui.fragment.article.ArticleListFragment;
 import com.it.onex.onex.ui.fragment.home.HomeFragment;
 import com.it.onex.onex.ui.fragment.knowledge.KnowLedgeFragment;
 import com.it.onex.onex.ui.fragment.me.MeFragment;
-import com.it.onex.onex.ui.fragment.navigation.NavigationFragment;
 
 import dagger.Component;
 
@@ -37,6 +36,6 @@ public interface FragmentComponent {
 
     void inject(ArticleListFragment fragment);
 
-    void inject(NavigationFragment fragment);
+//    void inject(NavigationFragment fragment);
 
 }

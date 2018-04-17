@@ -5,6 +5,7 @@ import com.it.onex.onex.bean.ArticleTypeContent;
 import com.it.onex.onex.bean.BannerData;
 import com.it.onex.onex.bean.DataResponse;
 import com.it.onex.onex.bean.KnowledgeSystem;
+import com.it.onex.onex.bean.Navigation;
 import com.it.onex.onex.bean.User;
 
 import java.util.List;
@@ -112,6 +113,6 @@ public interface ApiService {
      * http://www.wanandroid.com/navi/json
      */
     @GET("/navi/json")
-    Observable<DataResponse> getNavigationContent();
+    Observable<DataResponse<List<Navigation>>> getNavigationContent();
 
 }
