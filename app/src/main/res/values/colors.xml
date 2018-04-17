@@ -18,4 +18,5 @@
     <color name="while_most_color">#e4e4e4</color>
     <color name="alpha_10_black">#1A000000</color>
     <color name="lightgray">#11000000</color>
+    <color name="green">#00ffff</color>
 </resources>

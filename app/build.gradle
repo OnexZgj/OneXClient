@@ -93,4 +93,7 @@ dependencies {
     //banner
     compile 'com.youth.banner:banner:1.4.10'
 
+    //垂直的tablayout
+    compile 'q.rorbin:VerticalTabLayout:1.2.5'
+
 }

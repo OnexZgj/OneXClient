@@ -106,4 +106,12 @@ public interface ApiService {
     @GET("/article/list/{page}/json")
     Observable<DataResponse<ArticleTypeContent>> getArticleTypeContent(@Path("page") int page,@Query("cid") int cid );
 
+
+    /**
+     * 导航数据页面
+     * http://www.wanandroid.com/navi/json
+     */
+    @GET("/navi/json")
+    Observable<DataResponse> getNavigationContent();
+
 }
