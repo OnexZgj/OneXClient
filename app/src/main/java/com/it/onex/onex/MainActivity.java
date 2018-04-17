@@ -13,7 +13,7 @@ import com.it.onex.onex.base.BaseFragment;
 import com.it.onex.onex.ui.fragment.home.HomeFragment;
 import com.it.onex.onex.ui.fragment.knowledge.KnowLedgeFragment;
 import com.it.onex.onex.ui.fragment.me.MeFragment;
-import com.it.onex.onex.ui.fragment.navigation.NavigationFragment;
+import com.it.onex.onex.ui.fragment.project.ProjectFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +74,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     private void initFragment() {
         mFragments.add(HomeFragment.getInstance());
         mFragments.add(KnowLedgeFragment.getInstance());
-        mFragments.add(NavigationFragment.getInstance());
+        mFragments.add(ProjectFragment.getInstance());
         mFragments.add(MeFragment.getInstance());
     }
 
@@ -117,7 +117,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 break;
             case R.id.navigation_my:
                 mToolbar.setTitle(R.string.my);
-                switchFragment(2);
+                switchFragment(3);
                 break;
         }
 

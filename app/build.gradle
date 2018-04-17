@@ -96,4 +96,7 @@ dependencies {
     //垂直的tablayout
     compile 'q.rorbin:VerticalTabLayout:1.2.5'
 
+    //垂直方向的vp
+    compile 'cn.youngkaaa:yviewpager:0.4'
+
 }

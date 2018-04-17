@@ -6,6 +6,7 @@ import com.it.onex.onex.bean.BannerData;
 import com.it.onex.onex.bean.DataResponse;
 import com.it.onex.onex.bean.KnowledgeSystem;
 import com.it.onex.onex.bean.Navigation;
+import com.it.onex.onex.bean.Project;
 import com.it.onex.onex.bean.User;
 
 import java.util.List;
@@ -115,4 +116,19 @@ public interface ApiService {
     @GET("/navi/json")
     Observable<DataResponse<List<Navigation>>> getNavigationContent();
 
+
+    /**
+     * 项目分类
+     * http://www.wanandroid.com/project/tree/json
+     */
+    @GET("/project/tree/json")
+    Observable<DataResponse<List<Project>>>  getProjectData();
+
+
+    /**
+     * http://www.wanandroid.com/project/list/1/json?cid=294
+     * 项目分类中的详细数据列表
+     */
+    @GET("/project/list/{page}/json")
+    Observable<DataResponse<List<Project>>> getProjectDetailInfo(@Path("page") int page,@Query("cid") int cid);
 }

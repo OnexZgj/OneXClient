@@ -1,39 +1,34 @@
-package com.it.onex.onex.ui.fragment.navigation;
+package com.it.onex.onex.ui.fragment.project;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.it.onex.onex.R;
 import com.it.onex.onex.base.BaseFragment;
-import com.it.onex.onex.bean.Navigation;
+import com.it.onex.onex.bean.Project;
 
 import java.util.List;
 
 import butterknife.BindView;
+import cn.youngkaaa.yviewpager.YViewPager;
 import q.rorbin.verticaltablayout.VerticalTabLayout;
 import q.rorbin.verticaltablayout.adapter.TabAdapter;
 import q.rorbin.verticaltablayout.widget.ITabView;
 import q.rorbin.verticaltablayout.widget.TabView;
 
 /**
- * Created by Linsa on 2018/4/16:22:21.
- * des导航体系结构
+ * Created by Linsa on 2018/4/17:14:20.
+ * des:
  */
 
-public class NavigationFragment extends BaseFragment<NavigationFragmentImp> implements NavigationContract.View {
-    @BindView(R.id.tb_fn_navigation)
-    VerticalTabLayout tbFnNavigation;
-
-    @BindView(R.id.rv_fn_content)
-    RecyclerView rvFnContent;
-
-
-    private List<Navigation> mNavigation;
+public class ProjectFragment extends BaseFragment<ProjectFragmentImp> implements ProjectContract.View {
+    @BindView(R.id.tb_fn_project)
+    VerticalTabLayout tbFnProject;
+    @BindView(R.id.vp_fp_content)
+    YViewPager vpFpContent;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_navigation;
+        return R.layout.fragment_project;
     }
 
     @Override
@@ -43,23 +38,15 @@ public class NavigationFragment extends BaseFragment<NavigationFragmentImp> impl
 
     @Override
     protected void initView(View view) {
-        rvFnContent.setLayoutManager(new LinearLayoutManager(getContext()));
-        mPresenter.loadNavigationData();
-
-    }
-
-    public static NavigationFragment getInstance() {
-        return new NavigationFragment();
+        mPresenter.loadProjectNavigationData();
     }
 
     @Override
-    public void setNavigationData(final List<Navigation> navigation) {
-        this.mNavigation=navigation;
-        //这块进行设置adapter
-        tbFnNavigation.setTabAdapter(new TabAdapter() {
+    public void setProjectNavigationData(final List<Project> projects) {
+        tbFnProject.setTabAdapter(new TabAdapter() {
             @Override
             public int getCount() {
-                return navigation.size();
+                return projects.size();
             }
 
             @Override
@@ -75,7 +62,7 @@ public class NavigationFragment extends BaseFragment<NavigationFragmentImp> impl
             @Override
             public ITabView.TabTitle getTitle(int i) {
                 return new TabView.TabTitle.Builder()
-                        .setContent(navigation.get(i).getName())
+                        .setContent(projects.get(i).getName())
                         .setTextColor(0xFF36BC9B, 0xFF757575)
                         .build();
             }
@@ -87,7 +74,16 @@ public class NavigationFragment extends BaseFragment<NavigationFragmentImp> impl
             }
         });
 
-        //设置recycleView的adapter
 
+
+
+        vpFpContent.setAdapter(new ProjectTypePageAdapter(getChildFragmentManager(),projects));
+
+        tbFnProject.setupWithViewPager(vpFpContent);
+
+    }
+
+    public static BaseFragment getInstance() {
+        return  new ProjectFragment();
     }
 }
