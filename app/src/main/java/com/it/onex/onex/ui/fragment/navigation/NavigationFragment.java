@@ -37,7 +37,7 @@ public class NavigationFragment extends BaseFragment<NavigationFragmentImp> impl
 
     @Override
     protected void initInjector() {
-
+        mFragmentComponent.inject(this);
     }
 
     @Override

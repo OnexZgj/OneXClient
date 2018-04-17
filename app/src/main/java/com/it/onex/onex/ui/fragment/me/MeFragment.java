@@ -12,7 +12,6 @@ import com.it.onex.onex.bean.User;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 /**
  * Created by OnexZgj on 2018/4/2:22:08.
@@ -28,7 +27,6 @@ public class MeFragment extends BaseFragment<MePresenterImp> implements MeContra
     TextInputEditText etPassword;
     @BindView(R.id.btn_fm_login)
     Button btnFmLogin;
-    Unbinder unbinder;
 
     public static MeFragment getInstance() {
         return new MeFragment();
@@ -49,11 +47,6 @@ public class MeFragment extends BaseFragment<MePresenterImp> implements MeContra
     }
 
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 
     @OnClick({R.id.btn_fm_login})
     public void onViewClicked(View view) {

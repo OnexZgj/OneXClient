@@ -9,6 +9,8 @@ import com.it.onex.onex.utils.RxSchedulers;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.functions.Consumer;
 
 /**
@@ -17,6 +19,10 @@ import io.reactivex.functions.Consumer;
  */
 
 public class NavigationFragmentImp extends BasePresenter<NavigationContract.View> implements NavigationContract.Presenter {
+
+    @Inject
+    public NavigationFragmentImp() {
+    }
 
     @Override
     public void loadNavigationData() {

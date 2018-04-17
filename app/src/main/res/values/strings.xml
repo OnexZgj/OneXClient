@@ -3,6 +3,7 @@
     <string name="no_network_connection">请检查网络</string>
     <string name="title_home">首页</string>
     <string name="title_knowledgesystem">知识体系</string>
+    <string name="navigation">导航</string>
     <string name="title_my">我的</string>
     <string name="hot_title">Hot</string>
     <string name="search_title">Search</string>

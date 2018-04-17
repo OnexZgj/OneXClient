@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/navigation_home"
@@ -10,6 +11,11 @@
         android:id="@+id/navigation_knowledgesystem"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_knowledgesystem"/>
+
+    <item
+        android:id="@+id/navigation_navigation"
+        android:icon="@drawable/ic_action_hot_black"
+        android:title="@string/navigation" />
 
     <item
         android:id="@+id/navigation_my"
