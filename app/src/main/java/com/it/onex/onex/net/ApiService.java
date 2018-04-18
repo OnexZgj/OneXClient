@@ -4,6 +4,8 @@ import com.it.onex.onex.bean.Article;
 import com.it.onex.onex.bean.ArticleTypeContent;
 import com.it.onex.onex.bean.BannerData;
 import com.it.onex.onex.bean.DataResponse;
+import com.it.onex.onex.bean.Friend;
+import com.it.onex.onex.bean.HotKey;
 import com.it.onex.onex.bean.KnowledgeSystem;
 import com.it.onex.onex.bean.Navigation;
 import com.it.onex.onex.bean.Project;
@@ -30,6 +32,7 @@ public interface ApiService {
     /**
      * 获取文章列表的操作
      * http://www.wanandroid.com/article/list/0/json
+     *
      * @param page 页码，拼接在连接中，从0开始。
      * @return
      */
@@ -40,16 +43,17 @@ public interface ApiService {
     /**
      * 获取首页的Banner的操作
      * http://www.wanandroid.com/banner/json
+     *
      * @return
      */
     @GET("/banner/json")
     Observable<DataResponse<List<BannerData>>> getHomeBanners();
 
 
-
     /**
      * 收藏站内文章
-     *  http://www.wanandroid.com/lg/collect/1165/json
+     * http://www.wanandroid.com/lg/collect/1165/json
+     *
      * @param id 文章的id
      * @return
      */
@@ -60,7 +64,7 @@ public interface ApiService {
     /**
      * 删除收藏文章
      *
-     * @param id 文章id
+     * @param id       文章id
      * @param originId 列表页下发，无则为-1
      * @return Deferred<DataResponse>
      */
@@ -72,6 +76,7 @@ public interface ApiService {
     /**
      * 登录接口
      * http://www.wanandroid.com/user/login
+     *
      * @param username 用户名
      * @param password 密码
      * @return
@@ -84,13 +89,14 @@ public interface ApiService {
     /**
      * 注册用户的方法
      * http://www.wanandroid.com/user/register
-     * @param username 用户名
-     * @param password 密码
+     *
+     * @param username   用户名
+     * @param password   密码
      * @param repassword 确认密码
      * @return
      */
     @POST("/user/register")
-    Observable<DataResponse> register(@Field("username") String username,@Field("password") String password,@Field("repassword") String repassword);
+    Observable<DataResponse> register(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
 
 
     /**
@@ -107,7 +113,7 @@ public interface ApiService {
      */
 
     @GET("/article/list/{page}/json")
-    Observable<DataResponse<ArticleTypeContent>> getArticleTypeContent(@Path("page") int page,@Query("cid") int cid );
+    Observable<DataResponse<ArticleTypeContent>> getArticleTypeContent(@Path("page") int page, @Query("cid") int cid);
 
 
     /**
@@ -123,7 +129,7 @@ public interface ApiService {
      * http://www.wanandroid.com/project/tree/json
      */
     @GET("/project/tree/json")
-    Observable<DataResponse<List<Project>>>  getProjectData();
+    Observable<DataResponse<List<Project>>> getProjectData();
 
 
     /**
@@ -132,4 +138,22 @@ public interface ApiService {
      */
     @GET("/project/list/{page}/json")
     Observable<DataResponse<ProjectDetail>> getProjectDetailInfo(@Path("page") int page, @Query("cid") int cid);
+
+
+    /**
+     * 热搜api
+     * http://www.wanandroid.com//hotkey/json
+     */
+    @GET("/hotkey/json")
+    Observable<DataResponse<List<HotKey>>> getHotKey();
+
+    /**
+     * 常用网站
+     * http://www.wanandroid.com/friend/json
+     */
+    @GET("/friend/json")
+    Observable<DataResponse<List<Friend>>> getFriendLink();
+
+
+
 }
