@@ -7,6 +7,7 @@ import com.it.onex.onex.bean.DataResponse;
 import com.it.onex.onex.bean.KnowledgeSystem;
 import com.it.onex.onex.bean.Navigation;
 import com.it.onex.onex.bean.Project;
+import com.it.onex.onex.bean.ProjectDetail;
 import com.it.onex.onex.bean.User;
 
 import java.util.List;
@@ -130,5 +131,5 @@ public interface ApiService {
      * 项目分类中的详细数据列表
      */
     @GET("/project/list/{page}/json")
-    Observable<DataResponse<List<Project>>> getProjectDetailInfo(@Path("page") int page,@Query("cid") int cid);
+    Observable<DataResponse<ProjectDetail>> getProjectDetailInfo(@Path("page") int page, @Query("cid") int cid);
 }

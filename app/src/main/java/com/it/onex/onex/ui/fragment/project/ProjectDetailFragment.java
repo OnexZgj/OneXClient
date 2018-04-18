@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.it.onex.onex.R;
@@ -32,6 +33,9 @@ public class ProjectDetailFragment extends BaseFragment<ProjectDetailFragmentImp
     @Inject
     ProjectDetailAdapter mAdapter;
 
+    @Autowired
+    int cid;
+
 
     @Override
     protected int getLayoutId() {
@@ -50,20 +54,12 @@ public class ProjectDetailFragment extends BaseFragment<ProjectDetailFragmentImp
         mAdapter.setOnItemClickListener(this);
         mAdapter.setOnLoadMoreListener(this);
 
-        //todo
-        mPresenter.loadProjectInfoData(294);
+        mPresenter.loadProjectInfoData(cid);
     }
-
 
     @Override
     public void setProjectData(ProjectDetail projectDetail, int loadType) {
-
-    }
-
-
-    @Override
-    public void onRefresh() {
-
+        setLoadDataResult(mAdapter,srlFplRefresh,projectDetail.getDatas(),loadType);
     }
 
     @Override
@@ -71,9 +67,17 @@ public class ProjectDetailFragment extends BaseFragment<ProjectDetailFragmentImp
 
     }
 
+
+    @Override
+    public void onRefresh() {
+        mPresenter.refresh();
+    }
+
+
     @Override
     public void onLoadMoreRequested() {
-
+        mPresenter.loadMore();
     }
+
 
 }

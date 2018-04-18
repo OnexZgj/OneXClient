@@ -5,8 +5,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.it.onex.onex.base.BaseFragment;
 import com.it.onex.onex.bean.Project;
 import com.it.onex.onex.constant.Constant;
+import com.it.onex.onex.ui.fragment.me.MeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,7 @@ import java.util.List;
 public class ProjectTypePageAdapter extends FragmentPagerAdapter {
 
     private List<Project> mProjects;
-    private List<ProjectDetailFragment> mArticleListFragments;
+    private List<BaseFragment> mArticleListFragments;
 
     public ProjectTypePageAdapter(FragmentManager fm, List<Project> projects) {
         super(fm);
@@ -27,11 +29,12 @@ public class ProjectTypePageAdapter extends FragmentPagerAdapter {
         mArticleListFragments=new ArrayList<>();
         if (mProjects==null) return;
         //TODO 待优化解决
-        for (Project project: mProjects) {
+        for (int i = 0; i <projects.size() ; i++) {
+
             ProjectDetailFragment projectDetailFragment = (ProjectDetailFragment) ARouter.getInstance().build( "/project/ProjectDetailFragment")
-                    .withInt(Constant.CONTENT_CID_KEY, project.getId())
+                    .withInt(Constant.CONTENT_CID_KEY, projects.get(i).getId())
                     .navigation();
-            mArticleListFragments.add(projectDetailFragment);
+            mArticleListFragments.add(MeFragment.getInstance());
         }
     }
 
@@ -45,4 +48,8 @@ public class ProjectTypePageAdapter extends FragmentPagerAdapter {
         return mArticleListFragments.size();
     }
 
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mProjects.get(position).getName();
+    }
 }

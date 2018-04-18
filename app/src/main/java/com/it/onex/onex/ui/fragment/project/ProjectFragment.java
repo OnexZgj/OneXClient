@@ -43,6 +43,7 @@ public class ProjectFragment extends BaseFragment<ProjectFragmentImp> implements
 
     @Override
     public void setProjectNavigationData(final List<Project> projects) {
+
         tbFnProject.setTabAdapter(new TabAdapter() {
             @Override
             public int getCount() {
