@@ -8,7 +8,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.it.onex.onex.base.BaseFragment;
 import com.it.onex.onex.bean.Project;
 import com.it.onex.onex.constant.Constant;
-import com.it.onex.onex.ui.fragment.me.MeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +33,7 @@ public class ProjectTypePageAdapter extends FragmentPagerAdapter {
             ProjectDetailFragment projectDetailFragment = (ProjectDetailFragment) ARouter.getInstance().build( "/project/ProjectDetailFragment")
                     .withInt(Constant.CONTENT_CID_KEY, projects.get(i).getId())
                     .navigation();
-            mArticleListFragments.add(MeFragment.getInstance());
+            mArticleListFragments.add(projectDetailFragment);
         }
     }
 

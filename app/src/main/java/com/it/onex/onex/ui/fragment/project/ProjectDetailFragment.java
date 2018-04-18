@@ -1,6 +1,5 @@
 package com.it.onex.onex.ui.fragment.project;
 
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -22,13 +21,11 @@ import butterknife.BindView;
  */
 
 @Route(path = "/project/ProjectDetailFragment")
-public class ProjectDetailFragment extends BaseFragment<ProjectDetailFragmentImp> implements ProjectDetailFragmentContract.View, SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.OnItemClickListener, BaseQuickAdapter.RequestLoadMoreListener {
+public class ProjectDetailFragment extends BaseFragment<ProjectDetailFragmentImp> implements ProjectDetailFragmentContract.View, BaseQuickAdapter.OnItemClickListener{
 
 
     @BindView(R.id.rv_fpl_project_list)
     RecyclerView rvFplProjectList;
-    @BindView(R.id.srl_fpl_refresh)
-    SwipeRefreshLayout srlFplRefresh;
 
     @Inject
     ProjectDetailAdapter mAdapter;
@@ -36,6 +33,10 @@ public class ProjectDetailFragment extends BaseFragment<ProjectDetailFragmentImp
     @Autowired
     int cid;
 
+
+    public static ProjectDetailFragment getInstance(){
+        return new ProjectDetailFragment();
+    }
 
     @Override
     protected int getLayoutId() {
@@ -49,34 +50,25 @@ public class ProjectDetailFragment extends BaseFragment<ProjectDetailFragmentImp
 
     @Override
     protected void initView(View view) {
-        srlFplRefresh.setOnRefreshListener(this);
-        rvFplProjectList.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter.setOnItemClickListener(this);
-        mAdapter.setOnLoadMoreListener(this);
 
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        mLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+
+        rvFplProjectList.setLayoutManager(mLayoutManager);
+        mAdapter.setOnItemClickListener(this);
         mPresenter.loadProjectInfoData(cid);
     }
 
     @Override
     public void setProjectData(ProjectDetail projectDetail, int loadType) {
-        setLoadDataResult(mAdapter,srlFplRefresh,projectDetail.getDatas(),loadType);
+//        mAdapter=new ProjectDetailAdapter(projectDetail.getDatas());
+        mAdapter.setNewData(projectDetail.getDatas());
+        rvFplProjectList.setAdapter(mAdapter);
     }
 
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
-    }
-
-
-    @Override
-    public void onRefresh() {
-        mPresenter.refresh();
-    }
-
-
-    @Override
-    public void onLoadMoreRequested() {
-        mPresenter.loadMore();
+        showFaild("onItemClick: " +position);
     }
 
 

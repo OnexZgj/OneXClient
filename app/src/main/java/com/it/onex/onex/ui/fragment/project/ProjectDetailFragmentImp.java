@@ -20,7 +20,6 @@ import io.reactivex.functions.Consumer;
 public class ProjectDetailFragmentImp extends BasePresenter<ProjectDetailFragmentContract.View> implements ProjectDetailFragmentContract.Presenter {
 
     private boolean mIsRefresh;
-    private int mCid;
     private int mPage = 1;
 
     @Inject
