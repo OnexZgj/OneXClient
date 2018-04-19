@@ -8,6 +8,7 @@ import com.it.onex.onex.di.scope.ContextLife;
 import com.it.onex.onex.di.scope.PerFragment;
 import com.it.onex.onex.ui.fragment.article.ArticleListFragment;
 import com.it.onex.onex.ui.fragment.home.HomeFragment;
+import com.it.onex.onex.ui.fragment.hot.HotFragment;
 import com.it.onex.onex.ui.fragment.knowledge.KnowLedgeFragment;
 import com.it.onex.onex.ui.fragment.me.MeFragment;
 import com.it.onex.onex.ui.fragment.navigation.NavigationFragment;
@@ -44,5 +45,7 @@ public interface FragmentComponent {
     void inject(ProjectFragment fragment);
 
     void inject(ProjectDetailFragment fragment);
+
+    void inject(HotFragment fragment);
 
 }

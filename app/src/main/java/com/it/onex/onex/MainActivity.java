@@ -11,6 +11,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.it.onex.onex.base.BaseActivity;
 import com.it.onex.onex.base.BaseFragment;
 import com.it.onex.onex.ui.fragment.home.HomeFragment;
+import com.it.onex.onex.ui.fragment.hot.HotFragment;
 import com.it.onex.onex.ui.fragment.knowledge.KnowLedgeFragment;
 import com.it.onex.onex.ui.fragment.me.MeFragment;
 import com.it.onex.onex.ui.fragment.project.ProjectFragment;
@@ -62,7 +63,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             mToolbar.setTitle(R.string.hot_title);
 
             //TODO 实现热门的Fragment
-            switchFragment(2);
+            switchFragment(4);
         } else if (item.getItemId() == R.id.menuSearch) {
             ARouter.getInstance().build("/hotsearch/SearchActivity").navigation();
         }
@@ -76,6 +77,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         mFragments.add(KnowLedgeFragment.getInstance());
         mFragments.add(ProjectFragment.getInstance());
         mFragments.add(MeFragment.getInstance());
+        mFragments.add(HotFragment.getInstance());
     }
 
 
