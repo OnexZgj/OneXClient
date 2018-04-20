@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 
 /**
- * Created by Linsa on 2018/4/16:10:57.
+ * Created by OnexZgj on 2018/4/16:10:57.
  * des:完整项目vp中的Fragment
  */
 
@@ -61,7 +61,6 @@ public class ProjectDetailFragment extends BaseFragment<ProjectDetailFragmentImp
 
     @Override
     public void setProjectData(ProjectDetail projectDetail, int loadType) {
-//        mAdapter=new ProjectDetailAdapter(projectDetail.getDatas());
         mAdapter.setNewData(projectDetail.getDatas());
         rvFplProjectList.setAdapter(mAdapter);
     }
