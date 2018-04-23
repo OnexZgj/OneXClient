@@ -37,3 +37,7 @@ Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug
 #### SearchView的使用总结，
 
 #### 历史搜索功能的详细实现
+
+#### 下一步计划，进行实现豆瓣API的接入
+
+#### 集成定位和地图的操作
