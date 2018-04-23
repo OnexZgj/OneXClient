@@ -6,6 +6,7 @@ import android.content.Context;
 import com.it.onex.onex.di.module.ActivityModule;
 import com.it.onex.onex.di.scope.ContextLife;
 import com.it.onex.onex.di.scope.PerActivity;
+import com.it.onex.onex.search.SearchActivity;
 
 import dagger.Component;
 
@@ -24,6 +25,6 @@ public interface ActivityComponent {
 
     Activity getActivity();
 
-//    void inject(ArticleTypeActivity activity);
+    void inject(SearchActivity activity);
 
 }

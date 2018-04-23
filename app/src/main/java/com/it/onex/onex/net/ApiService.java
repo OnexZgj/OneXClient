@@ -155,5 +155,15 @@ public interface ApiService {
     Observable<DataResponse<List<Friend>>> getFriendLink();
 
 
+    /**
+     * 搜索页面
+     * http://www.wanandroid.com/article/query/0/json
+     * 页码：拼接在链接上，从0开始。
+     k ： 搜索关键词
+     */
+    @POST("article/query/{page}/json")
+    @FormUrlEncoded
+    Observable<DataResponse<Article>> getSearchArticles(@Path("page") int page,@Field("k") String key);
+
 
 }
