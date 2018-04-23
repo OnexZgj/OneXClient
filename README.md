@@ -33,3 +33,7 @@ Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug
 及布局文件中进行写一个相关的id 为toolbar的  ToolBar的控件，这样不会报空，又会单独处理
 
 #### 将Page页面的索引，全部写在presenter中，实现View与Presenter之间的解耦
+
+#### SearchView的使用总结，
+
+#### 历史搜索功能的详细实现
