@@ -118,4 +118,21 @@ public class RetrofitManager {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build();
         return retrofit.create(clazz);
     }
+
+
+
+    /**
+     * 获取Service
+     *
+     * @param clazz
+     * @param <T>
+     * @return
+     */
+    public static <T> T createGankIo(Class<T> clazz) {
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Constant.GANK_BASE_URL)
+                .client(getOkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build();
+        return retrofit.create(clazz);
+    }
 }

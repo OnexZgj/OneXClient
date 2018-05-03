@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.it.onex.onex.base.BaseActivity;
@@ -125,4 +128,13 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
         return true;
     }
+
+
+    public void onClick(View view) {
+        if (view instanceof TextView) {
+            String title = ((TextView) view).getText().toString();
+            Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

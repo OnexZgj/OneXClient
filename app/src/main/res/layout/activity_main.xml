@@ -39,14 +39,58 @@
 
     </LinearLayout>
 
-
-    <ScrollView
-        android:id="@+id/nav_view"
+    <com.github.mzule.fantasyslide.SideBar
+        android:id="@+id/leftSideBar"
         android:layout_width="200dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer"/>
+        android:background="@color/colorPrimary"
+        app:maxTranslationX="66dp">
+
+        <!-- 这里是 SideBar 的子视图-->
+
+        <LinearLayout
+            android:id="@+id/userInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_margin="10dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="mzule"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/MenuText"
+            android:text="朋友圈" />
+
+        <TextView
+            style="@style/MenuText"
+            android:text="钱包" />
+
+        <TextView
+            style="@style/MenuText"
+            android:text="优惠券" />
+
+        <TextView
+            style="@style/MenuText"
+            android:text="好友" />
+
+        <TextView
+            style="@style/MenuText"
+            android:text="设置" />
+
+    </com.github.mzule.fantasyslide.SideBar>
 
 </com.github.mzule.fantasyslide.FantasyDrawerLayout>
