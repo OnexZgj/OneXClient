@@ -122,7 +122,7 @@ public class RetrofitManager {
 
 
     /**
-     * 获取Service
+     * 获取GankIoService
      *
      * @param clazz
      * @param <T>
