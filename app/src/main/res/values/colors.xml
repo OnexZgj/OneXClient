@@ -19,4 +19,5 @@
     <color name="alpha_10_black">#1A000000</color>
     <color name="lightgray">#11000000</color>
     <color name="green">#00ffff</color>
+    <color name="select_color_tab">#ff4081</color>
 </resources>

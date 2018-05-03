@@ -42,7 +42,7 @@ public class GankFragment extends BaseFragment {
         initFragment();
 
         vpFgCon.setAdapter(new GankIoFragmentAdapter(getChildFragmentManager(),mFragments));
-
+        tlFgTablayout.setupWithViewPager(vpFgCon);
     }
 
     private void initFragment() {

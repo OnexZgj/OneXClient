@@ -110,18 +110,22 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         switch (item.getItemId()) {
             case R.id.navigation_home:
                 mToolbar.setTitle(R.string.app_name);
+                mToolbar.setVisibility(View.VISIBLE);
                 switchFragment(0);
                 break;
             case R.id.navigation_knowledgesystem:
                 mToolbar.setTitle(R.string.knowledgesystem);
+                mToolbar.setVisibility(View.VISIBLE);
                 switchFragment(1);
                 break;
             case R.id.navigation_navigation:
                 mToolbar.setTitle(R.string.navigation);
+                mToolbar.setVisibility(View.VISIBLE);
                 switchFragment(2);
                 break;
             case R.id.navigation_my:
-                mToolbar.setTitle(R.string.my);
+                mToolbar.setTitle(R.string.gank_io);
+                mToolbar.setVisibility(View.GONE);
                 switchFragment(3);
                 break;
         }
