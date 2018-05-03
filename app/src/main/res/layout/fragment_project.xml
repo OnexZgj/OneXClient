@@ -10,7 +10,6 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#EDEDED"
         app:indicator_color="#FFFFFF"
         app:indicator_gravity="fill"
         app:tab_height="50dp"
@@ -28,7 +27,7 @@
         android:id="@+id/vp_fp_content"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="3"
         app:orientation="vertical"/>
 
 </LinearLayout>
