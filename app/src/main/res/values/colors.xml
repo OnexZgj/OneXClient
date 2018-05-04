@@ -20,4 +20,7 @@
     <color name="lightgray">#11000000</color>
     <color name="green">#00ffff</color>
     <color name="select_color_tab">#ff4081</color>
+
+    <!-- grey -->
+    <color name="md_grey_500">#9e9e9e</color>
 </resources>

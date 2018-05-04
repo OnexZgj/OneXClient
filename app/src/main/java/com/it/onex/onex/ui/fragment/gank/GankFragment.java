@@ -6,7 +6,9 @@ import android.view.View;
 
 import com.it.onex.onex.R;
 import com.it.onex.onex.base.BaseFragment;
-import com.it.onex.onex.ui.fragment.me.MeFragment;
+import com.it.onex.onex.ui.fragment.gank.custom.GankCustomFragment;
+import com.it.onex.onex.ui.fragment.gank.day.GankDayFragment;
+import com.it.onex.onex.ui.fragment.gank.welfare.GankWelFareFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,9 +48,9 @@ public class GankFragment extends BaseFragment {
     }
 
     private void initFragment() {
-        mFragments.add(MeFragment.getInstance());
-        mFragments.add(MeFragment.getInstance());
-        mFragments.add(MeFragment.getInstance());
+        mFragments.add(GankWelFareFragment.getInstance());
+        mFragments.add(GankDayFragment.getInstance());
+        mFragments.add(GankCustomFragment.getInstance());
     }
 
 

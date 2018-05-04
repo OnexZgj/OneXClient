@@ -80,6 +80,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         mFragments.add(KnowLedgeFragment.getInstance());
         mFragments.add(ProjectFragment.getInstance());
         mFragments.add(GankFragment.getInstance());
+//        mFragments.add(GankWelFareFragment.getInstance());
         mFragments.add(HotFragment.getInstance());
     }
 

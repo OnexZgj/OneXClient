@@ -14,9 +14,7 @@ public class NavigationContract {
 
     interface View extends BaseContract.BaseView {
 
-
         void setNavigationData(List<Navigation> navigations);
-
 
     }
 

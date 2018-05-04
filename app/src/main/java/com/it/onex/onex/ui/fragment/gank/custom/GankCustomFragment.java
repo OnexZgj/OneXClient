@@ -24,4 +24,8 @@ public class GankCustomFragment extends BaseFragment{
     protected void initView(View view) {
 
     }
+
+    public static BaseFragment getInstance() {
+        return new GankCustomFragment();
+    }
 }

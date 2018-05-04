@@ -1,13 +1,14 @@
 package com.it.onex.onex.net;
 
-import android.database.Observable;
 
 import com.it.onex.onex.bean.GankIoCustomListBean;
 import com.it.onex.onex.bean.GankIoDayBean;
 import com.it.onex.onex.bean.GankIoWelfareListBean;
 
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+
 
 /**
  * Created by OnexZgj on 2018/5/3:15:25.
