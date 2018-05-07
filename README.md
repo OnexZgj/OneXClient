@@ -48,3 +48,5 @@ Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug
 #### cardview的点击事件选择背景的效果
 
 #### 每页的数量与baseFragment中的要对应一致
+
+#### glide 3.X和4.X的版本，3.X提供相关的api支持预加载时显示的图片，和过度的动画，而4.X中这些属性全都去掉了
