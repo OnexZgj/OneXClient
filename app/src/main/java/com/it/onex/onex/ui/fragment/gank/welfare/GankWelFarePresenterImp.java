@@ -51,7 +51,6 @@ public class GankWelFarePresenterImp extends BasePresenter<GankWelFareContract.V
                         mView.showFaild(throwable.getMessage().toString());
                     }
                 });
-
     }
 
     @Override

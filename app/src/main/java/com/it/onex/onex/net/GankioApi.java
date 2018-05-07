@@ -4,6 +4,7 @@ package com.it.onex.onex.net;
 import com.it.onex.onex.bean.GankIoCustomListBean;
 import com.it.onex.onex.bean.GankIoDayBean;
 import com.it.onex.onex.bean.GankIoWelfareListBean;
+import com.it.onex.onex.bean.GankioHistory;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -56,5 +57,13 @@ public interface GankioApi {
     Observable<GankIoWelfareListBean> getGankIoWelfareList(@Path("pre_page") int pre_page,
                                                            @Path("page") int page);
 
+
+    /**
+     * http://gank.io/api/day/history
+     * 获取干货发布的历史日期，方便查询最近的一天
+     */
+
+    @GET("api/day/history")
+    Observable<GankioHistory> getGankIoHistory();
 
 }

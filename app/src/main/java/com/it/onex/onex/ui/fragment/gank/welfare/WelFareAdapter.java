@@ -32,9 +32,6 @@ public class WelFareAdapter extends BaseQuickAdapter<GankIoWelfareListBean.Resul
 //                .into((ImageView) helper.getView(R.id.iv_item_image));
 
         Glide.with(mContext).load(item.getUrl())
-                .placeholder(R.mipmap.img_default_meizi)
-                .centerCrop()
-                .crossFade(500)
                 .into((ImageView) helper.getView(R.id.iv_iw_image));
     }
 }

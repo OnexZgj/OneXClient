@@ -17,7 +17,7 @@ public class GankIoFragmentAdapter extends FragmentStatePagerAdapter {
 
     private List<BaseFragment> mFragments;
 
-    private String[] titles=new String[]{"今日推荐","干货定制","福利"};
+    private String[] titles=new String[]{"福利","今日推荐","干货定制"};
 
     public GankIoFragmentAdapter(FragmentManager fm, List<BaseFragment> fragments) {
         super(fm);

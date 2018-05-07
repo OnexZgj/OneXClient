@@ -44,6 +44,7 @@ public class GankIoDayBean {
         this.category = category;
     }
 
+
     public static class ResultsBean {
         private List<AndroidBean> Android;
         private List<AppBean> App;
@@ -248,6 +249,7 @@ public class GankIoDayBean {
             private boolean used;
             private String who;
             private List<String> images;
+
 
             public String get_id() {
                 return _id;
