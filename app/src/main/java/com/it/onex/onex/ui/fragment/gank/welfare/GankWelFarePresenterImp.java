@@ -18,8 +18,13 @@ import io.reactivex.functions.Consumer;
 
 public class GankWelFarePresenterImp extends BasePresenter<GankWelFareContract.View> implements GankWelFareContract.Presenter {
 
+
     private int count=20;
     private int mPage=1 ;
+
+    /**
+     * 第一次进来是刷新的逻辑
+     */
     private boolean mIsRefresh=true;
 
 

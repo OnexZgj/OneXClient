@@ -46,3 +46,5 @@ Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug
 ####     android:foreground="@drawable/item_touch_bg" cardView的bug
 
 #### cardview的点击事件选择背景的效果
+
+#### 每页的数量与baseFragment中的要对应一致
