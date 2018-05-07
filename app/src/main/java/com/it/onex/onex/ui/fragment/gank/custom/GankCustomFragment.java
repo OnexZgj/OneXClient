@@ -2,6 +2,7 @@ package com.it.onex.onex.ui.fragment.gank.custom;
 
 import android.view.View;
 
+import com.it.onex.onex.R;
 import com.it.onex.onex.base.BaseFragment;
 
 /**
@@ -12,7 +13,7 @@ import com.it.onex.onex.base.BaseFragment;
 public class GankCustomFragment extends BaseFragment{
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.fragment_me;
     }
 
     @Override

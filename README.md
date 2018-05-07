@@ -41,3 +41,8 @@ Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug
 #### 下一步计划，进行实现豆瓣API的接入
 
 #### 集成定位和地图的操作
+
+
+####     android:foreground="@drawable/item_touch_bg" cardView的bug
+
+#### cardview的点击事件选择背景的效果

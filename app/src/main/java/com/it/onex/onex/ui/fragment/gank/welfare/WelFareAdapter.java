@@ -1,6 +1,5 @@
 package com.it.onex.onex.ui.fragment.gank.welfare;
 
-import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -32,9 +31,10 @@ public class WelFareAdapter extends BaseQuickAdapter<GankIoWelfareListBean.Resul
 //                .load(R.mipmap.img_default_meizi)
 //                .into((ImageView) helper.getView(R.id.iv_item_image));
 
-        Log.d(TAG, "convert: " + item.getUrl());
-        Glide.with(mContext)
-                .load(item.getUrl())
+        Glide.with(mContext).load(item.getUrl())
+                .placeholder(R.mipmap.img_default_meizi)
+                .centerCrop()
+                .crossFade(500)
                 .into((ImageView) helper.getView(R.id.iv_iw_image));
     }
 }

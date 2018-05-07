@@ -12,15 +12,15 @@ import javax.inject.Inject;
 import io.reactivex.functions.Consumer;
 
 /**
- * Created by Linsa on 2018/5/4:09:41.
+ * Created by OnexZgj on 2018/5/4:09:41.
  * des:
  */
 
 public class GankWelFarePresenterImp extends BasePresenter<GankWelFareContract.View> implements GankWelFareContract.Presenter {
 
-    private int count=15;
+    private int count=20;
     private int mPage=1 ;
-    private boolean mIsRefresh=false;
+    private boolean mIsRefresh=true;
 
 
     @Inject

@@ -43,14 +43,13 @@ public class GankWelFareFragment extends BaseFragment<GankWelFarePresenterImp> i
     protected void initView(View view) {
 
         srlFgiwWelfare.setOnRefreshListener(this);
-
-
         rvGankioWelfare.setLayoutManager(new LinearLayoutManager(getParentFragment().getContext()));
 
-        rvGankioWelfare.setAdapter(mAdapter);
-        mAdapter.setOnItemClickListener(this);
-        mAdapter.setOnLoadMoreListener(this);
+//        rvGankioWelfare.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
+        mAdapter.setOnItemClickListener(this);
+        mAdapter.setOnLoadMoreListener(this,rvGankioWelfare);
+        rvGankioWelfare.setAdapter(mAdapter);
         mPresenter.loadWelFareData();
     }
 
