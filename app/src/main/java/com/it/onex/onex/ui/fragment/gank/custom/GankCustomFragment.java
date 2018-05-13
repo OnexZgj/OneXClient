@@ -18,7 +18,7 @@ public class GankCustomFragment extends BaseFragment{
 
     @Override
     protected void initInjector() {
-
+//        mFragmentComponent.inject(this);
     }
 
     @Override
