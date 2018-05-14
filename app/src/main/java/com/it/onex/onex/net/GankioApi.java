@@ -47,7 +47,7 @@ public interface GankioApi {
 
 
     /**
-     * 分类数据: http://gank.io/api/data/福利/请求个数/第几页
+     * 福利: http://gank.io/api/data/福利/请求个数/第几页
      * 数据类型： 福利
      * 请求个数： 数字，大于0
      * 第几页：数字，大于0
@@ -65,5 +65,6 @@ public interface GankioApi {
 
     @GET("api/day/history")
     Observable<GankioHistory> getGankIoHistory();
+
 
 }
