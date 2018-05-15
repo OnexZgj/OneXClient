@@ -124,7 +124,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 mToolbar.setVisibility(View.VISIBLE);
                 switchFragment(2);
                 break;
-            case R.id.navigation_my:
+            case R.id.navigation_gank:
                 mToolbar.setTitle(R.string.gank_io);
                 mToolbar.setVisibility(View.GONE);
                 switchFragment(3);

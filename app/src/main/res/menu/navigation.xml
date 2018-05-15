@@ -18,8 +18,8 @@
         android:title="@string/navigation" />
 
     <item
-        android:id="@+id/navigation_my"
-        android:icon="@drawable/ic_my_black_24dp"
-        android:title="@string/title_my"/>
+        android:id="@+id/navigation_gank"
+        android:icon="@drawable/ic_vector_title_android2"
+        android:title="@string/title_gank"/>
 
 </menu>

@@ -52,3 +52,5 @@ Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug
 #### glide 3.X和4.X的版本，3.X提供相关的api支持预加载时显示的图片，和过度的动画，而4.X中这些属性全都去掉了
 
 #### baseRecycleViewAdapterHelper中的加载更多视图的开关和自定义加载视图的效果
+
+#### 创建公共的loadingView
