@@ -7,6 +7,7 @@ import com.it.onex.onex.di.module.FragmentModule;
 import com.it.onex.onex.di.scope.ContextLife;
 import com.it.onex.onex.di.scope.PerFragment;
 import com.it.onex.onex.ui.fragment.article.ArticleListFragment;
+import com.it.onex.onex.ui.fragment.gank.custom.GankCustomFragment;
 import com.it.onex.onex.ui.fragment.gank.day.GankDayFragment;
 import com.it.onex.onex.ui.fragment.gank.welfare.GankWelFareFragment;
 import com.it.onex.onex.ui.fragment.home.HomeFragment;
@@ -53,6 +54,8 @@ public interface FragmentComponent {
     void inject(GankWelFareFragment fragment);
 
     void inject(GankDayFragment fragment);
+
+    void inject(GankCustomFragment fragment);
 
 
 }
