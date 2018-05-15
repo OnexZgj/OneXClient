@@ -21,6 +21,33 @@
     <color name="green">#00ffff</color>
     <color name="select_color_tab">#ff4081</color>
 
+    <!--正文文字颜色-->
+    <color name="colorContent">#ff333333</color>
+
+    <!--tab标签栏文字的颜色-->
+    <color name="colorTabText">#585858</color>
+
+    <!-- 背景色 -->
+    <color name="bg_gray">#f1f1f1</color>
+
     <!-- grey -->
     <color name="md_grey_500">#9e9e9e</color>
+
+
+    <!--选择分类按下颜色-->
+    <color name="colorChoosePress">#DDD</color>
+
+    <color name="colorTitle">#666</color>
+    <!--首页item文字颜色-->
+    <color name="colorSubtitle">#999</color>
+
+    <!--页面背景的颜色-->
+    <color name="colorPageBg">#f2f4f5</color>
+
+
+    <color name="colorWhite">#ffffffff</color>
+
+    <!--分割线-->
+    <color name="colorLine">#EBEBEB</color>
+
 </resources>
