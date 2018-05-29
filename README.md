@@ -54,3 +54,5 @@ Error:Execution failed for task ':app:transformResourcesWithMergeJavaResForDebug
 #### baseRecycleViewAdapterHelper中的加载更多视图的开关和自定义加载视图的效果
 
 #### 创建公共的loadingView
+
+####
