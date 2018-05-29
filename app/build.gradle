@@ -103,13 +103,11 @@ dependencies {
     //tagAdapter
     compile 'com.hyman:flowlayout-lib:1.1.2'
 
-
     //rxbinding
     compile 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
     compile 'com.jakewharton.rxbinding2:rxbinding-appcompat-v7:2.1.1'
     compile 'com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:2.1.1'
     compile 'com.jakewharton.rxbinding2:rxbinding-design:2.1.1'
-
 
     //Drawlayout
     compile 'com.github.mzule.fantasyslide:library:1.0.5'

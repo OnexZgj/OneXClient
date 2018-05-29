@@ -3,7 +3,7 @@ package com.it.onex.onex.bean;
 import java.util.List;
 
 /**
- * Created by lw on 2018/1/24.
+ * Created by OneZgj on 2018/1/24.
  */
 
 public class User {

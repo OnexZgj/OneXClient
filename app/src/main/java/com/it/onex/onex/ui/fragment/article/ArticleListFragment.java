@@ -57,6 +57,7 @@ public class ArticleListFragment extends BaseFragment<ArticleFragmentPresenterIm
         mArticleAdapter.setOnLoadMoreListener(this);
 
         mPresenter.loadArticleListData(cid);
+
     }
 
     @Override

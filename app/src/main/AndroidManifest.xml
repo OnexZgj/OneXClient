@@ -26,7 +26,7 @@
         </activity>
         <activity android:name=".ui.fragment.article.ArticleContentActivity" />
         <activity android:name=".ui.fragment.article.ArticleTypeActivity" />
-        <activity android:name=".search.SearchActivity"></activity>
+        <activity android:name=".search.SearchActivity" />
     </application>
 
 </manifest>
