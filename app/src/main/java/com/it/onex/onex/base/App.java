@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.baidu.mapapi.SDKInitializer;
 import com.blankj.utilcode.util.Utils;
 import com.it.onex.onex.di.component.ApplicationComponent;
 import com.it.onex.onex.di.component.DaggerApplicationComponent;
@@ -22,8 +23,10 @@ public class App extends Application {
         super.onCreate();
         mInstance = this;
         initApplicationComponent();
+        SDKInitializer.initialize(getApplicationContext());
         Utils.init(this);
         intARouter();
+
 //        FlowManager.init(this);
     }
 

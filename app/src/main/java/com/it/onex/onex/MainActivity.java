@@ -139,6 +139,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         if (view instanceof TextView) {
             String title = ((TextView) view).getText().toString();
             Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
+            ARouter.getInstance().build("/map/MapActivity").navigation();
         }
     }
 
