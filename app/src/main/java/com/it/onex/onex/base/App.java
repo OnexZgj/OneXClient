@@ -1,7 +1,9 @@
 package com.it.onex.onex.base;
 
 import android.app.Application;
+import android.app.Service;
 import android.content.Context;
+import android.os.Vibrator;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.baidu.mapapi.SDKInitializer;
@@ -9,6 +11,7 @@ import com.blankj.utilcode.util.Utils;
 import com.it.onex.onex.di.component.ApplicationComponent;
 import com.it.onex.onex.di.component.DaggerApplicationComponent;
 import com.it.onex.onex.di.module.ApplicationModule;
+import com.it.onex.onex.service.LocationService;
 
 /**
  * Created by OnexZgj on 2018/1/18.
@@ -17,12 +20,16 @@ import com.it.onex.onex.di.module.ApplicationModule;
 public class App extends Application {
     private ApplicationComponent mApplicationComponent;
     private static App mInstance;
+    public LocationService locationService;
+    public Vibrator mVibrator;
 
     @Override
     public void onCreate() {
         super.onCreate();
         mInstance = this;
         initApplicationComponent();
+        locationService = new LocationService(getApplicationContext());
+        mVibrator =(Vibrator)getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
         SDKInitializer.initialize(getApplicationContext());
         Utils.init(this);
         intARouter();

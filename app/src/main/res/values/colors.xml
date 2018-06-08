@@ -50,4 +50,9 @@
     <!--分割线-->
     <color name="colorLine">#EBEBEB</color>
 
+
+    <color name="accuracyCircleFillColor">#AAFFFF88</color>
+    <color name="accuracyCircleStrokeColor">#AA00FF00</color>
+
+
 </resources>

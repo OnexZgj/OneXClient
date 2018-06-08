@@ -20,6 +20,11 @@
     //鉴权所需该权限获取进程列表
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+
     <application
         android:name=".base.App"
         android:allowBackup="true"
@@ -28,6 +33,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- 声明service组件 -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="GlMGvZkIGaKqC8dZewnp326FFGOr3keD" />
@@ -43,6 +56,7 @@
         <activity android:name=".ui.fragment.article.ArticleTypeActivity" />
         <activity android:name=".search.SearchActivity" />
         <activity android:name=".ui.fragment.map.MapActivity"/>
+        <activity android:name=".ui.fragment.map.LocationActivity"/>
     </application>
 
 </manifest>

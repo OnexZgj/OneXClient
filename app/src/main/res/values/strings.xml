@@ -57,4 +57,7 @@
     <string name="load_more_success">拉取数据成功</string>
     <string name="load_more_error">拉取数据失败</string>
     <string name="title_gank">干货</string>
+
+    <string name="startlocation">开始定位</string>
+    <string name="stoplocation">停止定位</string>
 </resources>
