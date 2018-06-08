@@ -15,6 +15,7 @@ import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.it.onex.onex.R;
 import com.it.onex.onex.base.App;
@@ -54,7 +55,20 @@ public class LocationActivity extends AppCompatActivity {
 
 
         mBaiduMap = mVlLocation.getMap();
+
+
+        //设置卫星地图的图层
+        mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+
+
+        // 开启定位图层
         mBaiduMap.setMyLocationEnabled(true);
+
+
+
+
+
+
 
 
     }
@@ -93,7 +107,6 @@ public class LocationActivity extends AppCompatActivity {
      */
     @Override
     protected void onStop() {
-        // TODO Auto-generated method stub
         locationService.unregisterListener(mListener); //注销掉监听
         locationService.stop(); //停止定位服务
         super.onStop();
@@ -149,6 +162,15 @@ public class LocationActivity extends AppCompatActivity {
 
                 // 设置定位数据
                 mBaiduMap.setMyLocationData(locData);
+
+
+// 设置定位图层的配置（定位模式，是否允许方向信息，用户自定义定位图标）
+
+                MyLocationConfiguration config = new MyLocationConfiguration(MyLocationConfiguration.LocationMode.FOLLOWING, true, mCurrentMarker);
+                mBaiduMap.setMyLocationConfiguration(config);
+
+
+
 
 
 //                StringBuffer sb = new StringBuffer(256);

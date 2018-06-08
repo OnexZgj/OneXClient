@@ -46,6 +46,7 @@ public class MapActivity extends AppCompatActivity {
 
         mBaiduMap = mMapView.getMap();
         mBaiduMap.setMyLocationEnabled(true);
+        mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
 
 //        // 构造定位数据
 //        MyLocationData locData = new MyLocationData.Builder()
