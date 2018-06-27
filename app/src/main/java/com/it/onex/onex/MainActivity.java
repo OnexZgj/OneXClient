@@ -185,6 +185,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         }
     }
 
+
+//    @RequiresApi(api = Build.VERSION_CODES.M)
     @TargetApi(23)
     private boolean addPermission(ArrayList<String> permissionsList, String permission) {
         if (checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) { // 如果应用没有获得对应权限,则添加到列表中,准备批量申请

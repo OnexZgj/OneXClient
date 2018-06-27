@@ -5,6 +5,13 @@
     android:orientation="vertical">
 
 
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+
+        android:src="@drawable/bg_frame_gray"/>
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/srl_fgiw_welfare"
         android:layout_width="match_parent"
