@@ -1,6 +1,8 @@
 package com.it.onex.onex.ui.fragment.gank.welfare;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Environment;
 
 import com.blankj.utilcode.util.FileUtils;
@@ -89,12 +91,20 @@ public class GankWelFarePresenterImp extends BasePresenter<GankWelFareContract.V
                 String[] split = imgUrl.split("/");
                 String imageName = split[split.length - 1];
 
-                boolean isSaveSuccess = FileUtils.copyFile(source, new File(Environment.getExternalStorageDirectory() + "/onexpic/" + imageName), new FileUtils.OnReplaceListener() {
+
+                File target = new File(Environment.getExternalStorageDirectory() + "/onexpic/" + imageName);
+
+                boolean isSaveSuccess = FileUtils.copyFile(source, target, new FileUtils.OnReplaceListener() {
                     @Override
                     public boolean onReplace() {
                         return false;
                     }
                 });
+
+                Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                Uri uri = Uri.fromFile(target);
+                intent.setData(uri);
+                context.sendBroadcast(intent);
 
                 emitter.onNext(isSaveSuccess);
             }

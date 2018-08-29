@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.it.onex.onex.R;
 import com.it.onex.onex.base.BaseFragment;
@@ -70,6 +71,11 @@ public class GankWelFareFragment extends BaseFragment<GankWelFarePresenterImp> i
     @Override
     public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 //        ToastUtils.showShort("position : " + position);
+        ARouter.getInstance().build("/gank/GankWelfearLookActivity")
+                .withString("url",mData.getResults().get(position).getUrl())
+                .navigation();
+
+
     }
 
     @Override
@@ -89,13 +95,7 @@ public class GankWelFareFragment extends BaseFragment<GankWelFarePresenterImp> i
     @Override
     public boolean onItemLongClick(BaseQuickAdapter adapter, View view, final int position) {
 
-
-
         mPresenter.saveImageToLocal(getContext(),mData.getResults().get(position).getUrl());
-
-
-
-
 
 
 //        new AsyncTask<Void, Void, Void>() {
@@ -129,7 +129,6 @@ public class GankWelFareFragment extends BaseFragment<GankWelFarePresenterImp> i
 //                super.onPostExecute(aVoid);
 //            }
 //        }.execute();
-
 
         return false;
     }

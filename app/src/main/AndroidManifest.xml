@@ -57,6 +57,7 @@
         <activity android:name=".search.SearchActivity" />
         <activity android:name=".ui.fragment.map.MapActivity"/>
         <activity android:name=".ui.fragment.map.LocationActivity"/>
+        <activity android:name=".ui.fragment.gank.welfare.GankWelfearLookActivity"/>
     </application>
 
 </manifest>
