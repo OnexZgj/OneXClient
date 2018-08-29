@@ -12,6 +12,8 @@ import com.it.onex.onex.di.component.ApplicationComponent;
 import com.it.onex.onex.di.component.DaggerApplicationComponent;
 import com.it.onex.onex.di.module.ApplicationModule;
 import com.it.onex.onex.service.LocationService;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.Logger;
 
 /**
  * Created by OnexZgj on 2018/1/18.
@@ -33,6 +35,7 @@ public class App extends Application {
         SDKInitializer.initialize(getApplicationContext());
         Utils.init(this);
         intARouter();
+        Logger.addLogAdapter(new AndroidLogAdapter());
 
 //        FlowManager.init(this);
     }

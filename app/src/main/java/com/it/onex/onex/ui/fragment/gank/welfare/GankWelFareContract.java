@@ -1,5 +1,7 @@
 package com.it.onex.onex.ui.fragment.gank.welfare;
 
+import android.content.Context;
+
 import com.it.onex.onex.base.BaseContract;
 import com.it.onex.onex.bean.GankIoWelfareListBean;
 
@@ -24,6 +26,8 @@ public interface GankWelFareContract {
 
         void loadMore();
 
+        /** 保存图片到本地 */
+        void saveImageToLocal(Context context, String imgUrl);
     }
 
 }

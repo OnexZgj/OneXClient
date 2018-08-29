@@ -3,17 +3,24 @@ package com.it.onex.onex.net;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.it.onex.onex.base.App;
 import com.it.onex.onex.constant.Constant;
+import com.orhanobut.logger.Logger;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
 import okhttp3.CacheControl;
 import okhttp3.Interceptor;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okhttp3.logging.HttpLoggingInterceptor;
+import okio.Buffer;
+import okio.BufferedSource;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -67,6 +74,10 @@ public class RetrofitManager {
         }
     };
 
+
+   private static final HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor()
+            .setLevel(HttpLoggingInterceptor.Level.BODY);
+
     /**
      * 日志拦截器
      */
@@ -75,6 +86,25 @@ public class RetrofitManager {
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
             Response response = chain.proceed(request);
+
+            String isSuccess = response.isSuccessful() ? "true" : "false";
+            Logger.w( isSuccess);
+
+
+            ResponseBody body = response.body();
+            BufferedSource source = body.source();
+            source.request(Long.MAX_VALUE); // Buffer the entire body.
+            Buffer buffer = source.buffer();
+            Charset charset = Charset.defaultCharset();
+            MediaType contentType = body.contentType();
+            if (contentType != null) {
+                charset = contentType.charset(charset);
+            }
+            String bodyString = buffer.clone().readString(charset);
+
+            Logger.w(String.format("Received response json string "+bodyString));
+
+//            Logger.json(bodyString);
             return response;
         }
     };
@@ -95,6 +125,7 @@ public class RetrofitManager {
                             .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
                             .addInterceptor(mRewriteCacheControlInterceptor)
                             .addInterceptor(mLoggingInterceptor)
+//                            .addInterceptor(interceptor)
                             .cookieJar(new CookiesManager())
                             .build();
                 }
@@ -118,7 +149,6 @@ public class RetrofitManager {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build();
         return retrofit.create(clazz);
     }
-
 
 
     /**
