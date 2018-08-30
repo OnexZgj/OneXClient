@@ -1,8 +1,6 @@
 package com.it.onex.onex.ui.fragment.home;
 
 import com.blankj.utilcode.util.ToastUtils;
-import com.it.onex.onex.R;
-import com.it.onex.onex.base.App;
 import com.it.onex.onex.base.BasePresenter;
 import com.it.onex.onex.bean.Article;
 import com.it.onex.onex.bean.BannerData;
@@ -21,8 +19,8 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function3;
 
 /**
  * Created by OnexZgj on 2018/4/3:11:03.
@@ -157,61 +155,61 @@ public class HomePresenterImp extends BasePresenter<HomeContract.View> implement
         Observable<DataResponse<List<BannerData>>> observableBanner = apiService.getHomeBanners();
         Observable<DataResponse<User>> observableLogin = apiService.login("OnexZgj", "13102119zgj");
 
-        Observable.zip(observableLogin, observableBanner, observableArticle, new Function3<DataResponse<User>, DataResponse<List<BannerData>>, DataResponse<Article>, Map<String,Object>>() {
-            @Override
-            public Map<String, Object> apply(DataResponse<User> loginResponse, DataResponse<List<BannerData>> bannerDataResponse, DataResponse<Article> articleDataResponse) throws Exception {
-                Map<String, Object> objMap = new HashMap<>();
-
-                //这里面是一个注意点，直接进行返回response的实体
-                objMap.put(Constant.LOGIN_KEY, loginResponse);
-                objMap.put(Constant.BANNER_KEY, bannerDataResponse.getData());
-                objMap.put(Constant.ARTICLE_KEY, articleDataResponse.getData());
-                return objMap;
-            }
-        }).compose(RxSchedulers.<Map<String,Object>>applySchedulers())
-                .compose(mView.<Map<String,Object>>bindToLife())
-                .subscribe(new Consumer<Map<String, Object>>() {
-                    @Override
-                    public void accept(Map<String, Object> mapData) throws Exception {
-                        DataResponse loginData = (DataResponse) mapData.get(Constant.LOGIN_KEY);
-                        if (loginData.getErrorCode()==0) {
-                            mView.showSuccess(App.getAppContext().getString(R.string.auto_login_success));
-                        }else{
-                            mView.showFaild(loginData.getErrorMsg());
-                        }
-                        mView.setHomeBanners((List<BannerData>) mapData.get(Constant.BANNER_KEY));
-                        mView.setHomeArticles((Article) mapData.get(Constant.ARTICLE_KEY), LoadType.TYPE_REFRESH_SUCCESS);
-                    }
-                }, new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        mView.showFaild("请求网络数据错误" + throwable.getMessage());
-                    }
-                });
-
-
-//        Observable.zip(observableArticle, observableBanner, new BiFunction<DataResponse<Article>, DataResponse<List<BannerData>>, Map<String, Object>>() {
+//        Observable.zip(observableLogin, observableBanner, observableArticle, new Function3<DataResponse<User>, DataResponse<List<BannerData>>, DataResponse<Article>, Map<String,Object>>() {
 //            @Override
-//            public Map<String, Object> apply(DataResponse<Article> articleDataResponse, DataResponse<List<BannerData>> bannerDataResponse) throws Exception {
+//            public Map<String, Object> apply(DataResponse<User> loginResponse, DataResponse<List<BannerData>> bannerDataResponse, DataResponse<Article> articleDataResponse) throws Exception {
 //                Map<String, Object> objMap = new HashMap<>();
+//
+//                //这里面是一个注意点，直接进行返回response的实体
+//                objMap.put(Constant.LOGIN_KEY, loginResponse);
 //                objMap.put(Constant.BANNER_KEY, bannerDataResponse.getData());
 //                objMap.put(Constant.ARTICLE_KEY, articleDataResponse.getData());
 //                return objMap;
 //            }
-//        }).compose(RxSchedulers.<Map<String, Object>>applySchedulers())
-//                .compose(mView.<Map<String, Object>>bindToLife())
+//        }).compose(RxSchedulers.<Map<String,Object>>applySchedulers())
+//                .compose(mView.<Map<String,Object>>bindToLife())
 //                .subscribe(new Consumer<Map<String, Object>>() {
 //                    @Override
-//                    public void accept(Map<String, Object> dataMap) throws Exception {
-//                        mView.setHomeBanners((List<BannerData>) dataMap.get(Constant.BANNER_KEY));
-//                        mView.setHomeArticles((Article) dataMap.get(Constant.ARTICLE_KEY), LoadType.TYPE_REFRESH_SUCCESS);
+//                    public void accept(Map<String, Object> mapData) throws Exception {
+//                        DataResponse loginData = (DataResponse) mapData.get(Constant.LOGIN_KEY);
+//                        if (loginData.getErrorCode()==0) {
+//                            mView.showSuccess(App.getAppContext().getString(R.string.auto_login_success));
+//                        }else{
+//                            mView.showFaild(loginData.getErrorMsg());
+//                        }
+//                        mView.setHomeBanners((List<BannerData>) mapData.get(Constant.BANNER_KEY));
+//                        mView.setHomeArticles((Article) mapData.get(Constant.ARTICLE_KEY), LoadType.TYPE_REFRESH_SUCCESS);
 //                    }
 //                }, new Consumer<Throwable>() {
 //                    @Override
 //                    public void accept(Throwable throwable) throws Exception {
-//                        mView.showFaild("请求网络错误" + throwable.getMessage());
+//                        mView.showFaild("请求网络数据错误" + throwable.getMessage());
 //                    }
 //                });
+
+
+        Observable.zip(observableArticle, observableBanner, new BiFunction<DataResponse<Article>, DataResponse<List<BannerData>>, Map<String, Object>>() {
+            @Override
+            public Map<String, Object> apply(DataResponse<Article> articleDataResponse, DataResponse<List<BannerData>> bannerDataResponse) throws Exception {
+                Map<String, Object> objMap = new HashMap<>();
+                objMap.put(Constant.BANNER_KEY, bannerDataResponse.getData());
+                objMap.put(Constant.ARTICLE_KEY, articleDataResponse.getData());
+                return objMap;
+            }
+        }).compose(RxSchedulers.<Map<String, Object>>applySchedulers())
+                .compose(mView.<Map<String, Object>>bindToLife())
+                .subscribe(new Consumer<Map<String, Object>>() {
+                    @Override
+                    public void accept(Map<String, Object> dataMap) throws Exception {
+                        mView.setHomeBanners((List<BannerData>) dataMap.get(Constant.BANNER_KEY));
+                        mView.setHomeArticles((Article) dataMap.get(Constant.ARTICLE_KEY), LoadType.TYPE_REFRESH_SUCCESS);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        mView.showFaild("请求网络错误" + throwable.getMessage());
+                    }
+                });
 
     }
 }

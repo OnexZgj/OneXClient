@@ -102,9 +102,9 @@ public class RetrofitManager {
             }
             String bodyString = buffer.clone().readString(charset);
 
-            Logger.w(String.format("Received response json string "+bodyString));
+//            Logger.w(String.format("Received response json string "+bodyString));
 
-//            Logger.json(bodyString);
+            Logger.json(bodyString);
             return response;
         }
     };
@@ -124,7 +124,8 @@ public class RetrofitManager {
                             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
                             .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
                             .addInterceptor(mRewriteCacheControlInterceptor)
-                            .addInterceptor(mLoggingInterceptor)
+//                            正式上线将其屏蔽掉
+//                            .addInterceptor(mLoggingInterceptor)
 //                            .addInterceptor(interceptor)
                             .cookieJar(new CookiesManager())
                             .build();

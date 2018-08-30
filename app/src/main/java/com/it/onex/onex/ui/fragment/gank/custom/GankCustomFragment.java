@@ -68,7 +68,9 @@ public class GankCustomFragment extends BaseFragment<GankCustomPresenterImp> imp
         mAdapter.setOnLoadMoreListener(this, rvFcCustom);
         mAdapter.setOnItemClickListener(this);
         rvFcCustom.setAdapter(mAdapter);
-        mAdapter.setHeaderView(headView);
+        //为了防止重复加载
+        mAdapter.addHeaderView(headView);
+//        mAdapter.setHeaderView(headView);
         mPresenter.loadCustomeData();
     }
 

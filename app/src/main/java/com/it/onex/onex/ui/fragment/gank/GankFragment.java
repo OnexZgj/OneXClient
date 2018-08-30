@@ -9,6 +9,7 @@ import com.it.onex.onex.base.BaseFragment;
 import com.it.onex.onex.ui.fragment.gank.custom.GankCustomFragment;
 import com.it.onex.onex.ui.fragment.gank.day.GankDayFragment;
 import com.it.onex.onex.ui.fragment.gank.welfare.GankWelFareFragment;
+import com.it.onex.onex.ui.fragment.me.MeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,12 +46,16 @@ public class GankFragment extends BaseFragment {
 
         vpFgCon.setAdapter(new GankIoFragmentAdapter(getChildFragmentManager(),mFragments));
         tlFgTablayout.setupWithViewPager(vpFgCon);
+
+        vpFgCon.setOffscreenPageLimit(mFragments.size());
+
     }
 
     private void initFragment() {
         mFragments.add(GankWelFareFragment.getInstance());
         mFragments.add(GankDayFragment.getInstance());
         mFragments.add(GankCustomFragment.getInstance());
+        mFragments.add(MeFragment.getInstance());
     }
 
 
