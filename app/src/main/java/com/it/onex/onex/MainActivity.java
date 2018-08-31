@@ -8,6 +8,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -102,6 +104,17 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         BaseFragment targetFg = mFragments.get(position);
+
+        Slide slideTransition;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            //Gravity.START部分机型崩溃java.lang.IllegalArgumentException: Invalid slide direction
+            slideTransition = new Slide(Gravity.LEFT);
+            slideTransition.setDuration(700);
+            targetFg.setEnterTransition(slideTransition);
+            targetFg.setExitTransition(slideTransition);
+        }
+
+
         Fragment lastFg = mFragments.get(mLastFgIndex);
         mLastFgIndex = position;
         ft.hide(lastFg);
